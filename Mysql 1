@@ -1,0 +1,379 @@
+Python 3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mysql.connector
+>>> mydb = mysql.connector.connect(host = "localhost", user = "root", passwd = "1234"
+... )
+>>> mycursor = mydb.cursor() mycursor.execute("CREATE DATABASE KJ"
+  File "<stdin>", line 1
+    mycursor = mydb.cursor() mycursor.execute("CREATE DATABASE KJ"
+                             ^^^^^^^^
+SyntaxError: invalid syntax
+>>> mycursor = mydb.cursor()
+>>> mycursor.execute("CREATE DATABASE KJ"
+... )
+>>> mycursor.execute("SHOW DATABASE")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+>>> mycursor.execute("CREATE DATABASE KJ")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Can't create database 'kj'; database exists
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1007 (HY000): Can't create database 'kj'; database exists
+>>> mycursor.execute("SHOW DATABASES")
+>>> for x in mycursor:
+...     print(x)
+...
+('catalog',)
+('dataswing',)
+('demo',)
+('exam',)
+('information_schema',)
+('kj',)
+('mysql',)
+('performance_schema',)
+('sample',)
+('sl',)
+('sys',)
+('university',)
+('vit_icer',)
+>>> c = kj.cursor()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'kj' is not defined
+>>> c = mydb.cursor()
+>>> c.execute("CREATE TABLE customer(name VARVHAR(255), address VARCHAR(255))")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARVHAR(255), address VARCHAR(255))' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your Myc.execute("CREATE TABLE customer(name VARVHAR(255), address VARCHAR(255))")VARCHAR(255))' at line 1
+Traceback (most recent call last):er(name VARVHAR(255), address VARCHAR(255))")
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARVHAR(255), address VARCHAR(255))' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARVHAR(255), address VARCHAR(255))' at line 1
+>>> mydb = mysql.connector.connect(host = "localhost", user = "root", passwd = "1234", database = "kj")
+>>> c = mydb.cursor()
+>>> c.execute("CREATE TABLE customer(name VARVHAR(255), address VARCHAR(255))")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARVHAR(255), address VARCHAR(255))' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARVHAR(255), address VARCHAR(255))' at line 1
+>>> c.execute("SHOW TABLES")
+>>> for x in c:
+...     print(x)
+...
+>>> c.execute("CREATE TABLE employee(name VARCHAR(255), address
+VARCHAR(255))")
+>>> c.execute("SHOW TABLES")
+>>> for x in c:
+...     print(x)
+...
+('employee',)
+>>> c.execute("CREATE TABLE employee ADD COLOUMN id INT AUTO_INCREMENT PRIMARY KEY")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADD COLOUMN id INT AUTO_INCREMENT PRIMARY KEY' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADD COLOUMN id INT AUTO_INCREMENT PRIMARY KEY' at line 1
+>>> c.execute("ALTER TABLE employee ADD COLOUMN id INT AUTO_INCR
+EMENT PRIMARY KEY")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id INT AUTO_INCREMENT PRIMARY KEY' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id INT AUTO_INCREMENT PRIMARY KEY' at line 1
+>>> c = mydb.cursor()
+>>> c.execute("ALTER TABLE employee ADD COLOUMN id INT AUTO_INCREMENT PRIMARY KEY")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id INT AUTO_INCREMENT PRIMARY KEY' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id INT AUTO_INCREMENT PRIMARY KEY' at line 1
+>>> c.execute("ALTER TABLE employee ADD COLUMN id INT AUTO_INCRE
+MENT PRIMARY KEY")
+>>> sql = "INSERT INTO employee(id,name,address) VALUES(%d %s %s
+)"
+>>> val = (1,"John Bhaiya", "NH 47")
+>>> val = (2,"Walter White", "Mexico")
+>>> val = [("Monica", "Gradma's House"),("Chandler", "Infront of Monica"),("Ross","Nadiya Ke Uss Paar")]
+>>> c.executemany(sql,val)
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%d 'Monica' 'Gradma\'s House'),(%d 'Chandler' 'Infront of Monica'),(%d 'Ross' 'N' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 484, in executemany
+    return self.execute(stmt)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%d 'Monica' 'Gradma\'s House'),(%d 'Chandler' 'Infront of Monica'),(%d 'Ross' 'N' at line 1
+>>> val = [(4,"Monica", "Gradma's House"),(5,"Chandler", "Infront of Monica"),(6,"Ross","Nadiya Ke Uss Paar")]
+>>> c.executemany(sql,val)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 481, in executemany
+    stmt = self._batch_insert(operation, seq_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 435, in _batch_insert
+    raise InterfaceError(f"Failed executing the operation; {err}") from None
+mysql.connector.errors.InterfaceError: Failed executing the operation; Not all parameters were used in the SQL statement
+>>> val = [(3,"Monica", "Gradma's House"),(4,"Chandler", "Infront of Monica"),(5,"Ross","Nadiya Ke Uss Paar")]
+>>> c.executemany(sql,val)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 481, in executemany
+    stmt = self._batch_insert(operation, seq_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 435, in _batch_insert
+    raise InterfaceError(f"Failed executing the operation; {err}") from None
+mysql.connector.errors.InterfaceError: Failed executing the operation; Not all parameters were used in the SQL statement
+>>> sql = "INSERT INTO employee(name,address) VALUES(%s, %s)"
+>>> val = [("Monica", "Gradma's House"),("Chandler", "Infront of Monica"),("Ross","Nadiya Ke Uss Paar")]
+>>> c.executemany(sql,val)
+>>> print(c.rowcount, "was inserted")
+3 was inserted
+>>> db.commit()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'db' is not defined
+>>> mydb.commit()
+>>> print("Record ID",c.lastrowid())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> mydb = mysql.connector.connect(host = "localhost", user = "root", passwd = "1234", database = "kj")
+>>> c = mydb.cursor()
+>>> print("Record id", c.lastrowid())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'NoneType' object is not callable
+>>> mydb = mysql.connector.connect(host = "localhost", user = "root", passwd = "1234", database = "kj")
+>>> c = mydb.cursor()
+>>> print("Record ID",c.lastrowid())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'NoneType' object is not callable
+>>> val = ("Joey", "Gradma's House")
+>>> sql = "INSERT INTO employee(name,address) VALUES(%s, %s)"
+>>> val = ("Joey", "Chandler's child")
+>>> c.execute(sql,val)
+>>> mydb.commit()
+>>> print("Record:",c.lastrowid())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> print("Record:",c.lastrowid)
+Record: 4
+>>> c.execute("SELECT * FROM employee")
+>>> result = c.fetchall()
+>>> for x in result:
+...     print(x)
+...
+('Monica', "Gradma's House", 1)
+('Chandler', 'Infront of Monica', 2)
+('Ross', 'Nadiya Ke Uss Paar', 3)
+('Joey', "Chandler's child", 4)
+>>> result2 = c.fetchone()
+>>> print(result2)
+None
+>>> c.execute("SELECT * FROM employee")
+>>> result2 = c.fetchone()
+>>> print(result2)
+('Monica', "Gradma's House", 1)
+>>> sql = "UPDATE employee SET address = "Chidiya ghar" address = "Infront of Monica"
+  File "<stdin>", line 1
+    sql = "UPDATE employee SET address = "Chidiya ghar" address = "Infront of Monica"
+                                          ^^^^^^^
+SyntaxError: invalid syntax
+>>> sql = "UPDATE employee SET address = "Chidiya ghar" WHERE ad
+dress = "Infront of Monica"
+  File "<stdin>", line 1
+    sql = "UPDATE employee SET address = "Chidiya ghar" WHERE address = "Infront of Monica"
+                                          ^^^^^^^
+SyntaxError: invalid syntax
+>>> sql = "UPDATE employee SET address = "Chidiya ghar" WHERE address = "Infront of Monica""
+  File "<stdin>", line 1
+    sql = "UPDATE employee SET address = "Chidiya ghar" WHERE address = "Infront of Monica""
+                                          ^^^^^^^
+SyntaxError: invalid syntax
+>>> sql = "UPDATE employee SET address = 'Chidiya ghar' WHERE ad
+dress = 'Infront of Monica'"
+>>> c.execute(sql)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 330, in execute
+    self._connection.handle_unread_result()
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+>>> c = mydb.cursor()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 770, in cursor
+    self.handle_unread_result(prepared)
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+>>> mydb = mysql.connector.connect(host = "localhost", user = "root", passwd = "1234", database = "kj")
+>>> c = mydb.cursor()
+>>> sql = "UPDATE employee SET address = 'Chidiya ghar' WHERE address = 'Infront of Monica'"
+>>> c.execute(sql)
+>>> mydb.commit()
+>>> print(c.rowcount,"record affected")
+1 record affected
+>>> c.execute("SELECT * FROM employee LIMIT 5")
+>>> result = c.fetchall()
+>>> for x in result:
+...     print(x)
+...
+('Monica', "Gradma's House", 1)
+('Chandler', 'Chidiya ghar', 2)
+('Ross', 'Nadiya Ke Uss Paar', 3)
+('Joey', "Chandler's child", 4)
+>>> c.execute("SELECT * FROM employee LIMIT OFFSET 2")
+Traceback (most recent call last):
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mtab\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2' at line 1
+>>> c.execute("SELECT * FROM employee LIMIT 4 OFFSET 2")
+>>> result = c.fetchall()
+>>> for x in result:
+...     print(x)
+...
+('Ross', 'Nadiya Ke Uss Paar', 3)
+('Joey', "Chandler's child", 4)
+>>>
